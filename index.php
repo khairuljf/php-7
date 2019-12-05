@@ -39,6 +39,12 @@ foreach ($foods as $key=>$value){
     echo $key . '=' . $value . '<br>';
 }
 
+$keys = array_keys($foods);
+
+foreach ($keys as $key){
+    echo '<br>'.$foods[$key];
+}
+
 
 
 
