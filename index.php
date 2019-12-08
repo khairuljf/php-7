@@ -57,6 +57,18 @@ echo '<br>';
 var_dump($student);
 echo '<br>';
 var_dump(serialize($student));
+echo '<br>';
+$jsonEndocde = json_encode($student);
+
+var_dump($jsonEndocde);
+$jsonDecode = json_decode($jsonEndocde);
+echo '<br>';
+var_dump($jsonDecode);
+$jsonDecodeWithArray = json_decode($jsonEndocde, true);
+echo '<br>';
+var_dump($jsonDecodeWithArray);
+
+
 
 
 
