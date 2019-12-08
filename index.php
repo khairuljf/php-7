@@ -46,6 +46,20 @@ foreach ($keys as $key){
 }
 
 
+$student = [
+  'fname' => 'khairul',
+  'lName' => 'Islam',
+  'age'    => 30
+];
+
+echo '<br>';
+
+var_dump($student);
+echo '<br>';
+var_dump(serialize($student));
+
+
+
 
 
 
