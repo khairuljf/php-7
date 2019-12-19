@@ -13,11 +13,27 @@ $allowType = array(
         'image/jpeg',
 );
 
+// Single photo upload
 if($_FILES['photo']){
     if(in_array($_FILES['photo']['type'],$allowType)){
 
         move_uploaded_file($_FILES['photo']['tmp_name'],"files/".$_FILES['photo']['name']);
     }
+
+}
+
+
+// Multiple photos upload
+if($_FILES['photos']){
+    $fileCount = count($_FILES['photos']['name']);
+
+    for ($i=0; $i<$fileCount; $i++){
+        if(in_array($_FILES['photos']['type'][$i],$allowType)){
+            move_uploaded_file($_FILES['photos']['tmp_name'][$i],"files/".$_FILES['photos']['name'][$i]);
+        }
+    }
+
+
 
 }
 
@@ -68,14 +84,21 @@ if($_FILES['photo']){
                 <pre>
                     <p>
                         <?php
-                        print_r($_POST);
+                        //print_r($_POST);
                         print_r($_FILES);
 
                         ?>
                     </p>
                 </pre>
+                <span>Single file upload</span>
                 <div>
                     <input type="file" name="photo">
+                </div>
+                <span>Multiple file upload</span>
+                <div>
+                    <input type="file" name="photos[]">
+                    <input type="file" name="photos[]">
+                    <input type="file" name="photos[]">
                 </div>
 
                 <button type="submit">Submit</button>

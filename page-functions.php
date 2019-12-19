@@ -10,3 +10,12 @@ function isChecked($inputname, $value){
     }
 
 }
+function isFruitsChecked( $value){
+
+    //var_dump();
+
+    if( isset($_REQUEST['fruits']) && is_array($_REQUEST['fruits'])  && in_array($value,$_REQUEST['fruits']  ) ){
+        echo 'checked';
+    }
+
+}

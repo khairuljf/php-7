@@ -60,10 +60,10 @@ include_once 'page-functions.php';
                 <label for="checkbox" > <input type="checkbox" name="checkbox" value="1" <?php echo $checkded; ?> id="checkbox">Single Check Input</label>
 
                 <h3 class="m-0 p-0">Multiple Check box</h3>
-                <label> <input type="checkbox" name="fruits[]"  value="Mango" <?php isChecked('fruits','Mango') ?> > Mango</label>
-                <label> <input type="checkbox" name="fruits[]" value="Banana" <?php isChecked('fruits','Banana') ?>  > Banana</label>
-                <label> <input type="checkbox" name="fruits[]"  value="Grape" <?php isChecked('fruits','Grape') ?> > Grape</label>
-                <label> <input type="checkbox" name="fruits[]" value="Pineaaple" <?php isChecked('fruits','Pineaaple') ?> > Pineaaple</label>
+                <label> <input type="checkbox" name="fruits[]"  value="Mango" <?php isFruitsChecked('Mango') ?> > Mango</label>
+                <label> <input type="checkbox" name="fruits[]" value="Banana" <?php isFruitsChecked('Banana') ?>  > Banana</label>
+                <label> <input type="checkbox" name="fruits[]"  value="Grape" <?php isFruitsChecked('Grape') ?> > Grape</label>
+                <label> <input type="checkbox" name="fruits[]" value="Pineaaple" <?php isFruitsChecked('Pineaaple') ?> > Pineaaple</label>
 
 
                 <button type="submit">Submit</button>
