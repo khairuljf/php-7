@@ -66,6 +66,33 @@ include_once 'page-functions.php';
                 <label> <input type="checkbox" name="fruits[]" value="Pineaaple" <?php isFruitsChecked('Pineaaple') ?> > Pineaaple</label>
 
 
+
+
+                <?php
+                function displayVegetables($vegetables){
+                    foreach ($vegetables as $vegetable){
+                        printf('<option value="%s">%s</option>', strtolower($vegetable), ucwords($vegetable));
+                    }
+                }
+
+
+                $vegetables =array('alu','begun','potol');
+
+
+                if(isset($_POST['vegetable']) && !empty($_POST['vegetable'])){
+                    printf("You have selected %s", ucwords($_POST['vegetable']) );
+                }
+
+
+                ?>
+
+                <h3 class="m-0 p-0">Select option</h3>
+                <select name="vegetable" id="">
+                    <option value="" selected disabled>Choose vagetable</option>
+                    <?php displayVegetables($vegetables); ?>
+                </select>
+
+
                 <button type="submit">Submit</button>
             </form>
         </div>
