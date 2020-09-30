@@ -18,6 +18,7 @@ var_dump(isEven(3));
 echo "<br>";
 
 var_dump(returnType(5,2));
+echo "<br>";
 
 
 $student = [
@@ -41,6 +42,7 @@ foreach ($foods as $key=>$value){
 
 $keys = array_keys($foods);
 
+
 foreach ($keys as $key){
     echo '<br>'.$foods[$key];
 }
@@ -56,12 +58,21 @@ echo '<br>';
 
 var_dump($student);
 echo '<br>';
-var_dump(serialize($student));
 echo '<br>';
+$studentSerialize = serialize($student);
+var_dump(serialize($studentSerialize));
+echo '<br>';
+var_dump(unserialize($studentSerialize));
+echo '<br>';
+echo '<br>';
+
+
+
 $jsonEndocde = json_encode($student);
 
 var_dump($jsonEndocde);
 $jsonDecode = json_decode($jsonEndocde);
+echo '<br>';
 echo '<br>';
 var_dump($jsonDecode);
 $jsonDecodeWithArray = json_decode($jsonEndocde, true);
