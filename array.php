@@ -85,7 +85,9 @@ $nestedArray = [
         ]
     ]
 ];
-
+echo '<pre>';
+var_dump($nestedArray);
+echo '</pre>';
 echo 'nested array in third index: <b>'. $nestedArray['FirstIndex']['SecondIndex']['ThirdIndex']['1'] . '</b> nested array in 2nd index: <b>'. $nestedArray['FirstIndex']['SecondIndex']['2'].'</b>';
 echo '<br>';echo '<br>';
 // unset fuction for remove asociative key & value
