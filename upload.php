@@ -16,7 +16,6 @@ $allowType = array(
 // Single photo upload
 if($_FILES['photo']){
     if(in_array($_FILES['photo']['type'],$allowType)){
-
         move_uploaded_file($_FILES['photo']['tmp_name'],"files/".$_FILES['photo']['name']);
     }
 
@@ -32,9 +31,6 @@ if($_FILES['photos']){
             move_uploaded_file($_FILES['photos']['tmp_name'][$i],"files/".$_FILES['photos']['name'][$i]);
         }
     }
-
-
-
 }
 
 ?>

@@ -26,11 +26,14 @@ include_once 'page-functions.php';
 
             <?php
 
+            // $_request[''] it will work for get & post method
+
             $fname = '';
             $lname = '';
-            $checkded ='';
+            $checkded = '';
 
             if(isset($_POST['checkbox']) && !empty($_POST['checkbox'])==1){
+                //var_dump($_POST['checkbox']);
                 $checkded = 'checked';
             }
 

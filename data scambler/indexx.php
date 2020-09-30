@@ -8,17 +8,48 @@ if(isset($_GET['task']) && $_GET['task'] !='' ){
     $task = $_GET['task'];
 }
 
-$key = 'abcdefghijklmnopqrstuvwxyz1234567890';
+$key_original =  'abcdefghijklmnopqrstuvwxyz1234567890';
+$shuffle_key = '';
 
-if('key' == $task ){
-    echo "key";
-    $key_orginal = str_split($key);
+if('key' == $task || 'encode' == $task ){
+    $key_orginal = str_split($key_original);
     shuffle($key_orginal);
-    $key = join('', $key_orginal);
-}else if ( isset($_POST['key']) && $_POST['key']!=''){
-    echo "Submit key";
-    $key = $_POST['key'];
+    $shuffle_key = join('', $key_orginal);
+}else if ( isset($_REQUEST['key']) && $_REQUEST['key']!=''){
+    $shuffle_key = $_REQUEST['key'];
 }
+;
+
+$encodedDecodeData = '';
+if('encode' == $task ){
+
+    if(isset($_POST['message']) && $_POST['message']!=''){
+        $message = $_POST['message'];
+        $encodedDecodeData = encodeData($shuffle_key, $message);
+    }
+}
+
+
+if('decode' == $task ){
+    $shuffle_key = '';
+    if ( isset($_POST['key']) && isset($_POST['message'])){
+        $message = $_POST['message'];
+        $key = $_POST['key'];
+        var_dump($key, $message );
+        $encodedDecodeData = decodeData($key, $message);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,16 +85,16 @@ if('key' == $task ){
             </div>
         </div>
     <div class="row">
-        <form method="POST" action="indexx.php">
+        <form method="POST" action="indexx.php?task=<?php if('decode'==$task){echo 'decode'; }?>">
 
             <label for="key">Genarate Key</label>
-            <input type="text"  name="key" id="key" <?php displayKey($key); ?> >
+            <input type="text"  name="key" id="key" <?php displayKey($shuffle_key); ?> >
 
             <label for="entry">Entery</label>
-            <textarea name="entry" id="entry" cols="30" rows="10"></textarea>
+            <textarea  id="entry" cols="30" name="message" rows="10"><?php if(isset($_POST['message'])){echo $_POST['message'];} ?></textarea>
 
             <label for="Result">Result</label>
-            <textarea name="Result" id="Result" cols="30" rows="10"></textarea>
+            <textarea name="Result" id="Result" cols="30" rows="10"><?php echo $encodedDecodeData ?></textarea>
 
             <input type="submit">
         </form>
